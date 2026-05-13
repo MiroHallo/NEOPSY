@@ -11,7 +11,7 @@ Multizonal Transdimensional Inversion (MTI) to infer near-surface 1D layered vel
 
 ---
 
-A unique software package NEOPSY for Multizonal Transdimensional Inversion (MTI) of near-surface 1D layered velocity models within a full Bayesian framework (Hallo et al., 2021). The framework is designed as transdimensional and data-driven, meaning the model complexity is inferred directly from the data. This is implemented by a mathematical **Occam's razor** inherent to the Bayesian formulation. The transdimensional model space is sampled using **Markov Chain Monte Carlo** (MCMC) with **Parallel Tempering**, enabling efficient exploration of high-dimensional and non-linear parameter spaces. The code is parallelized in **Fortran** using **MPI** (CPU), specifically optimized for deployment on **High-Performance Computing** (HPC) clusters and large-scale seismic inversions.
+A unique software package NEOPSY for Multizonal Transdimensional Inversion (MTI) of near-surface 1D layered velocity models within a full Bayesian framework (Hallo et al., 2021). The framework is designed as transdimensional and data-driven, meaning the model complexity is inferred directly from the data. This is implemented by a mathematical **Occam's razor** inherent to the Bayesian formulation. The transdimensional model space is sampled using **Markov Chain Monte Carlo** (MCMC) with **Parallel Tempering**, enabling efficient exploration of high-dimensional and non-linear parameter spaces. The code is parallelized in **Fortran** using **MPI** (CPU), specifically optimized for deployment on **High-Performance Computing** (HPC) clusters and large-scale seismic inversions. This code was used for the inversion of near-surface structure on **Mars**, published in **Nature Communications** (Hobiger, Hallo, Schmelzbach et al., 2021).
 
 ## 1 METHODOLOGY
 
@@ -49,7 +49,7 @@ Data-driven Inversion, Occam's razor
     *   Integration with Geopsy 2.X
     *   Enhanced Engine: Improved search for layers with inverse velocity, improved birth from prior
     *   Advanced Visualization: QWL impedance statistic, SH-wave transfer function statistic, high-resolution V<sub>S30</sub>
-    *   Key Publications: Desert version (Desert2 patch) used in publications by Hallo et al. (2021, [https://doi.org/10.1093/gji/ggab116](https://doi.org/10.1093/gji/ggab116)), Hobiger et al. (2021, [https://doi.org/10.1038/s41467-021-26957-7](https://doi.org/10.1038/s41467-021-26957-7))
+    *   Key Publications: Desert version (Desert2 patch) used in publications by Hallo et al. (2021, [https://doi.org/10.1093/gji/ggab116](https://doi.org/10.1093/gji/ggab116)), Hobiger, Hallo, Schmelzbach et al. (2021, [https://doi.org/10.1038/s41467-021-26957-7](https://doi.org/10.1038/s41467-021-26957-7))
 
 *   **1.0 (Crimson/Coral) — Initial Release** | February 2020
     *   Internal-only version
@@ -160,7 +160,6 @@ If you use NEOPSY, please cite both the original methodology paper (preferred) a
 
 ### For the methodology and implementation:
 > Hallo, M., Imperatori, W., Panzera, F., Fäh, D. (2021). Joint multizonal transdimensional Bayesian inversion of surface wave dispersion and ellipticity curves for local near-surface imaging. Geophysical Journal International, 226 (1), 627-659. [https://doi.org/10.1093/gji/ggab116](https://doi.org/10.1093/gji/ggab116)
-
 
 ---
 
