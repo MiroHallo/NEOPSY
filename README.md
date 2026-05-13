@@ -255,123 +255,124 @@ SIGNAL |signal code| – |A cause and a suggested solution|
 * ERROR 107 – This occurs if the profile’s maximum depth is smaller than the minimum depth in
             the input.para. Solution: Include correct depths in the input.para file (e.g., 0.5
             250.0).
-AUTOC 108 – This occurs if the program performs an autocorrection of the user input to fulfill
+* AUTOC 108 – This occurs if the program performs an autocorrection of the user input to fulfill
             requirements: The transdimensional proposal probability. Solution: Just bear it in
             mind or include a number < 0.45 in the input.para.
-AUTOC 109 – This occurs if the program performs an autocorrection of the user input to fulfill
+* AUTOC 109 – This occurs if the program performs an autocorrection of the user input to fulfill
             requirements: The number of Voronoi nuclei in the non-transdimensional inversion.
             Solution: Just bear it in mind or increase the total maximal number of the Voronoi
             nuclei in the input.para.
-ERROR 110 – This occurs if the Gaussian random walker step size in the input.para is too large
+* ERROR 110 – This occurs if the Gaussian random walker step size in the input.para is too large
             for this profile. Solution: Decrease the log-depth step size in the input.para file.
-ERROR 111 – This occurs if a zone is defined below the max depth of the profile. Solution: Increase
+* ERROR 111 – This occurs if a zone is defined below the max depth of the profile. Solution: Increase
             the maximal depth of the profile in the input.para file or delete the deepest depthzone.
-SWAP 112 – This occurs if the program performs an autocorrection of the user input to fulfill
+* SWAP 112 – This occurs if the program performs an autocorrection of the user input to fulfill
            requirements: The first argument of S-wave velocity thresholds must be smaller
            than the second one. The program performed an automatic swap of these two values.
            Solution: Just bear it in mind or swap them manually in the input.para.
-SWAP 113 – This occurs if the program performs an autocorrection of the user input to fulfill
+* SWAP 113 – This occurs if the program performs an autocorrection of the user input to fulfill
            requirements: The first argument of P-wave velocity thresholds must be smaller
            than the second one. The program performed an automatic swap of these two values.
            Solution: Just bear it in mind or swap them manually in the input.para.
-SWAP 114 – This occurs if the program performs an autocorrection of the user input to fulfill
+* SWAP 114 – This occurs if the program performs an autocorrection of the user input to fulfill
            requirements: The first argument of density thresholds must be smaller than the
            second one. The program performed an automatic swap of these two values. Solution:
            Just bear it in mind or swap them manually in the input.para.
-SWAP 115 – This occurs if the program performs an autocorrection of the user input to fulfill
+* SWAP 115 – This occurs if the program performs an autocorrection of the user input to fulfill
            requirements: The first argument of Poisson ratio thresholds must be smaller than
            the second one. The program performed an automatic swap of these two values.
            Solution: Just bear it in mind or swap them manually in the input.para.
-ERROR 116 – This occurs if the Gaussian random walker S-wave velocity step size in the input.para
+* ERROR 116 – This occurs if the Gaussian random walker S-wave velocity step size in the input.para
             is zero or less. Solution: Set the S-wave velocity step size to a positive non-zero
             value in the input.para file.
-ERROR 117 – This occurs if the Gaussian random walker P-wave velocity step size in the input.para
+* ERROR 117 – This occurs if the Gaussian random walker P-wave velocity step size in the input.para
             is zero or less. Solution: Set the P-wave velocity step size to a positive non-zero
             value in the input.para file.
-ERROR 118 – This occurs if the Gaussian random walker density step size in input.para is zero or
+* ERROR 118 – This occurs if the Gaussian random walker density step size in input.para is zero or
             less. Solution: Set the density step size to a positive non-zero value in the input.
             para file.
-AUTOC 119 – This occurs if the program performs an autocorrection of the user input to fulfill
+* AUTOC 119 – This occurs if the program performs an autocorrection of the user input to fulfill
             requirements: The Gaussian random walker S-wave velocity step size in the input.
             para was too large and has been decreased. Solution: Just bear it in mind or
             decrease it manually in the input.para.
-AUTOC 120 – This occurs if the program performs an autocorrection of the user input to fulfill
+* AUTOC 120 – This occurs if the program performs an autocorrection of the user input to fulfill
             requirements: The Gaussian random walker P-wave velocity step size in the input.
             para was too large and has been decreased. Solution: Just bear it in mind or
             decrease it manually in the input.para.
-AUTOC 121 – This occurs if the program performs an autocorrection of the user input to fulfill
+* AUTOC 121 – This occurs if the program performs an autocorrection of the user input to fulfill
             requirements: The Gaussian random walker density step size in the input.para was
             too large and has been decreased. Solution: Just bear it in mind or decrease it
             manually in the input.para.
-ERROR 122 – This occurs if the depth difference between two arbitrary fixed Voronoi nuclei is
+* ERROR 122 – This occurs if the depth difference between two arbitrary fixed Voronoi nuclei is
             smaller than a limit (0.1[m] in default). Solution: Increase the depth span between
             the fixed Voronoi nuclei in the input.para file.
-ERROR 123 – This occurs if the working directory does not exist (./inv/ in default). Solution: create
+* ERROR 123 – This occurs if the working directory does not exist (./inv/ in default). Solution: create
             the working directory (with name and path asset in the input.para file).
-ERROR 124 – This occurs if the logging directory does not exist (./inv/log in default). Solution:
+* ERROR 124 – This occurs if the logging directory does not exist (./inv/log in default). Solution:
             create the logging directory (a subdirectory named “log” in the working directory).
-AUTOC 125 – This occurs if the program performs an autocorrection of the user input to fulfill
+* AUTOC 125 – This occurs if the program performs an autocorrection of the user input to fulfill
             requirements: The transdimensional proposal probability must be equal to 0.0 in
             the case of non-transdimensional inversion. Solution: Just bear it in mind or set the
             transdimensional proposal probability to 0.0 in the input.para.
-AUTOC 126 – This occurs if the program performs an autocorrection of the user input to fulfill
+* AUTOC 126 – This occurs if the program performs an autocorrection of the user input to fulfill
             requirements: The transdimensional proposal probability must be equal to 0.0 in
             the case of non-transdimensional inversion. Solution: Just bear it in mind or set the
             transdimensional proposal probability to 0.0 in the input.para.
-ERROR 127 – This occurs if the settings in the input.para suggests a non-transdimensional inversion
+* ERROR 127 – This occurs if the settings in the input.para suggests a non-transdimensional inversion
             (transdimensional proposal probability is equal to 0.0), but the number of fixed
             Voronoi nuclei (or the fixed number of layers) is set to zero. Solution: set the transdimensional
             proposal probability OR the number of required fixed nuclei to a positive number.
-ERROR 128 – This occurs if the settings in the input.para suggests a non-transdimensional inversion
+* ERROR 128 – This occurs if the settings in the input.para suggests a non-transdimensional inversion
             (transdimensional proposal probability is equal to 0.0), but there is more than
             one depth zone defined. The depth zones are a feature of the transdimensional
             inversion, and it is impossible to mix them with a fixed number of Voronoi nuclei
             (or layers). Solution: delete all the superfluous depth zones.
-ERROR 129 – This occurs if the settings in the input.para suggests using user-defined initial model
+* ERROR 129 – This occurs if the settings in the input.para suggests using user-defined initial model
             (expert mode settings) together with a multizonal inversion. Solution: turn off the
             respective expert switch OR delete all depth zones.
-ERROR 130 – This occurs if the settings in the input.para suggests using user-defined initial model
+* ERROR 130 – This occurs if the settings in the input.para suggests using user-defined initial model
             (expert mode settings) together with a non-transdimensional inversion. Solution:
             turn off the respective expert switch OR select to use single-zonal transdimensional
             inversion.
-WARNING 201 – This occurs if no mode of Rayleigh or Love wave dispersion curves in the
+* WARNING 201 – This occurs if no mode of Rayleigh or Love wave dispersion curves in the
               data.para. Solution: turn on at least one switch for the surface wave dispersion
               modes (set at least one to 1).
-ERROR 202 – This occurs if there is a switch on for both ellipticity and ellipticity angle. Solution:
+* ERROR 202 – This occurs if there is a switch on for both ellipticity and ellipticity angle. Solution:
             turn one of these two switches to zero in the data.para.
-ERROR 203-206 – This occurs if a Rayleigh wave data file is given in the data.para does not exist
+* ERROR 203-206 – This occurs if a Rayleigh wave data file is given in the data.para does not exist
                 (R0, R1, R2, R3). Solution: Include a correct filename and path to this file (the path
                 is not mandatory if it is in the same directory as the executable file).
-ERROR 207-210 – This occurs if a Love wave data file is given in the data.para does not exist (L0,
+* ERROR 207-210 – This occurs if a Love wave data file is given in the data.para does not exist (L0,
                 L1, L2, L3). Solution: Include a correct filename and path to this file (the path is
                 not mandatory if it is in the same directory as the executable file).
-ERROR 211-212 – Occurs if the ellipticity (or ellipticity angle) data file is given in the data.para
+* ERROR 211-212 – Occurs if the ellipticity (or ellipticity angle) data file is given in the data.para
                 does not exist. Solution: Include a correct filename and path to this file (the path is
                 not mandatory if it is in the same directory as the executable file).
-ERROR 213 – Occurs if the file with the initial model (expert mode settings), which is given in the
+* ERROR 213 – Occurs if the file with the initial model (expert mode settings), which is given in the
             data.para, does not exist. Solution: Include a correct filename and path to this file
             OR turn off the respective expert switch.
-ERROR 214 – This occurs if the initial model (expert mode settings) given in the data.para has a
+* ERROR 214 – This occurs if the initial model (expert mode settings) given in the data.para has a
             corrupted or unknown structure. Solution: Include the initial model file with the
             correct structure OR turn off the respective expert switch.
-ERROR 215 – Occurs if the file with the reference velocity model does not exist. Solution: Include a correct filename and path to            this file.
-ERROR 301 – This occurs if the generation of initial random models takes too many interactions.
+* ERROR 215 – Occurs if the file with the reference velocity model does not exist. Solution: 
+            Include a correct filename and path to this file.
+* ERROR 301 – This occurs if the generation of initial random models takes too many interactions.
             It means that the model space is too large and over-conditioned. Solution: Reduce
             the number of higher modes of observed data; increase the uncertainty of the observed
             data; decrease the span of search for S, P-wave velocity, density, and
             Poisson ratio; and/or check if observed data are OK.
-ERROR 302 – This occurs when performing a non-transdimensional inversion (transdimensional
+* ERROR 302 – This occurs when performing a non-transdimensional inversion (transdimensional
             proposal probability is equal to 0.0), but the number of fixed Voronoi nuclei (or
             the fixed number of layers) is set to zero. Solution: set the transdimensional proposal
             probability OR the number of required fixed nuclei to a positive number.
-ERROR 303 – This occurs if the number of required layers in a non-transdimensional inversion
+* ERROR 303 – This occurs if the number of required layers in a non-transdimensional inversion
             exceeds the maximum number of allowed Voronoi nuclei. Solution: Increase the
             maximum number of allowed Voronoi nuclei in the input.para file and run again.
-ERROR 304-309 – Occurs if a problem occurred during reading and processing of the user-defined
+* ERROR 304-309 – Occurs if a problem occurred during reading and processing of the user-defined
                 initial model (expert mode settings) given in the data.para. For details, see
                 the message coming with the error code. Solution: Include the initial model file
                 with the correct structure, OR turn off the respective expert switch.
-ERROR 401 – This occurs if there is an error in the forward problem during the after-processing
+* ERROR 401 – This occurs if there is an error in the forward problem during the after-processing
             of the saved models. There should be none as the saved models have been processed
             in the main run already. Solution: Check, if you are after-processing results
             from the correct main run (check the changed date of xmodels*.dat files and
