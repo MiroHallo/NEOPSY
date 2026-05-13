@@ -113,20 +113,16 @@ bash ./run_timpi.sh
 ```text
   MCstep - Number of performed Markov steps
   AccT1 - New accepted sampling models
-  AccAll - New accepted models on all temp.
+  AccAll - New accepted models (all temp.)
   Err - Number of cases when Geopsy failed
   aVR[%] - Highest data Variance Reduction
 ------------------------------------------
   MCstep   AccT1  AccAll     Err    aVR[%]
 max_val:      10     200     200      100%
 ------------------------------------------
-      50       0     120       0  -5291.23
      100       0     119       0  -2177.08
-     150       0     130       0   -542.85
      200       0     121       0    -80.91
-     250       1     116       0    -65.84
      300       0     115       0     14.60
-     350       1     105       4     33.11
      400       4     109       1     46.63
      500       8     103       0     65.67
 ```
