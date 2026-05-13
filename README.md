@@ -113,18 +113,18 @@ bash ./run_timpi.sh
 ```text
   MCstep - Number of performed Markov steps
   AccT1 - New accepted sampling models
-  AccAll - New accepted models (all temp.)
+  AccAll - New accepted models (20 chains)
   Err - Number of cases when Geopsy failed
   aVR[%] - Highest data Variance Reduction
 ------------------------------------------
   MCstep   AccT1  AccAll     Err    aVR[%]
-max_val:      10     200     200      100%
+max_val:     100    2000    2000      100%
 ------------------------------------------
-     100       0     119       0  -2177.08
-     200       0     121       0    -80.91
-     300       0     115       0     14.60
-     400       4     109       1     46.63
-     500       8     103       0     65.67
+     100       0    1191       0  -2177.08
+     200       0    1215       0    -80.91
+     300       0    1154       0     14.60
+     400      38    1093      11     46.63
+     500      81    1037       1     65.67
 ```
 6. **Step 2** - Run the after-process (`tires`) to create PDFs, population histograms, QWL representation, SH-wave amplification, etc. You can run it manually, or by using the bash file `run_tires.sh` (recommended). The results are saved in `./inv` directory as (`out*` and `in*` files)
 ```bash
