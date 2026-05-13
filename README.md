@@ -30,8 +30,8 @@ Data-driven Inversion, Occam's razor
 
 ## 3 RELEASE HISTORY (MAJOR VERSIONS)
 
-*   **4.0 (Fjord) — Modern Public Release** | March 2026
-    *   Public release
+*   **4.0 (Fjord) — Public Release** | March 2026
+    *   Public open-source release
     *   Integration with Geopsy 3.X
     *   New Outputs: Output ASCII files with layer interfaces, MAP model uncertainty, amplification, and V<sub>S30</sub>
     *   Advanced Visualization: Improved all plotting scripts, high-resolution resultant figures
@@ -48,7 +48,7 @@ Data-driven Inversion, Occam's razor
     *   Internal-only version
     *   Integration with Geopsy 2.X
     *   Enhanced Engine: Improved search for layers with inverse velocity, improved birth from prior
-    *   Advanced Visualization: QWL impedance statistic, SH-wave transfer function statistic, high-resolution Vs30
+    *   Advanced Visualization: QWL impedance statistic, SH-wave transfer function statistic, high-resolution V<sub>S30</sub>
     *   Key Publications: Desert version (Desert2 patch) used in publications by Hallo et al. (2021, [https://doi.org/10.1093/gji/ggab116](https://doi.org/10.1093/gji/ggab116)), Hobiger et al. (2021, [https://doi.org/10.1038/s41467-021-26957-7](https://doi.org/10.1038/s41467-021-26957-7))
 
 *   **1.0 (Crimson/Coral) — Initial Release** | February 2020
@@ -95,27 +95,46 @@ Data-driven Inversion, Occam's razor
 make
 ```
 3. Check `npdc`, `tiser`, `timpi`, and `tires` binary programs in the project root directory
-4. Make binaries executable (if necessary) by
+4. If necessary, make binaries executable by
 ```bash
 chmod +x npdc tiser timpi tires
 ```
 
 ## 7 USAGE
 
-1. Create a work directory for the inversion `./inv` in case it does not exist. The name of the working folder is optional, but it has to be the same as defined in the `input.para` file
-2. Create a log directory for log files `./inv/log` in case it does not exist
-3. Prepare data files with observed dispersion and ellipticity curves in `./data`
-4. Set input parameters of data and inversion (`data.para` and `input.para`)
-5. **Step 1** - Run the MTI (executable `timpi` or `tiser`). You can do it manually, but it is strongly recommended to use the prepared bash file `run_timpi.sh`
+1. Create a work directory `./inv` and log directory `./inv/log`. The name of the working folder is optional, but it has to be the same as defined in the `input.para` file (`run_timpi.sh` creates these directories automatically)
+2. Prepare data files with observed dispersion and ellipticity curves in directory `./data`
+3. Set input parameters of data and inversion (`data.para` and `input.para`) in NEOPSY root directory
+4. **Step 1** - Run NEOPSY (executable `timpi` or `tiser`). You can do it manually, but it is strongly recommended to use the prepared bash file `run_timpi.sh`
 ```bash
 bash ./run_timpi.sh
 ```
-6. The result of MTI is an ensemble of possible velocity models drawn from the transdimensional posterior probability density function. You can wait for the termination of MCMC Markov chains or kill `timpi` at any time (`kill -9 PID`). MTI saves models continuously, so there is no harm if you kill it prematurely; there will be fewer models in the ensemble (but be careful to wait until the end of the burn-in phase). These models are saved in `./inv` directory in binary files (`xmodels*.dat`)
-7. **Step 2** - Run the after-process (`tires`) to create PDFs, population histograms, QWL representation, SH-wave amplification, etc. You can run it manually, or by using the bash file `run_tires.sh`. The results are saved in `./inv` directory as (`out*` and `in*` files)
+5. The result of NEOPSY is an ensemble of possible velocity models drawn from the transdimensional posterior probability density function. You can wait for the termination of MCMC Markov chains (it can last several hours) or kill `timpi` at any time (`kill -9 PID`). NEOPSY saves models continuously, so there is no harm if you kill it prematurely; there will be fewer models in the ensemble (but be careful to wait until the end of the burn-in phase). These models are saved in `./inv` directory in binary files (`xmodels*.dat`). You can check the state of the inversion at any time by browsing log files in `./inv/log`. Especially, note number of preformed steps and the best data variance reduction in files `stats_*.log`.
+```text
+  MCstep - Number of performed Markov steps
+  AccT1 - New accepted sampling models
+  AccAll - New accepted models on all temp.
+  Err - Number of cases when Geopsy failed
+  aVR[%] - Highest data Variance Reduction
+------------------------------------------
+  MCstep   AccT1  AccAll     Err    aVR[%]
+max_val:      10     200     200      100%
+------------------------------------------
+      50       0     120       0  -5291.23
+     100       0     119       0  -2177.08
+     150       0     130       0   -542.85
+     200       0     121       0    -80.91
+     250       1     116       0    -65.84
+     300       0     115       0     14.60
+     350       1     105       4     33.11
+     400       4     109       1     46.63
+     500       8     103       0     65.67
+```
+6. **Step 2** - Run the after-process (`tires`) to create PDFs, population histograms, QWL representation, SH-wave amplification, etc. You can run it manually, or by using the bash file `run_tires.sh` (recommended). The results are saved in `./inv` directory as (`out*` and `in*` files)
 ```bash
 bash ./run_tires.sh
 ```
-8. **Step 3** - Copy results (all `./inv/out*` and `./inv/in*` files) on your PC with a graphical interface and installed MATLAB (or open MATLAB with a graphical interface on the server). Then, run the MATLAB script `plot_pop.m` for plotting results (Python plotting is in preparation for the next version)
+7. **Step 3** - Copy results (all `./inv/out*` and `./inv/in*` files) on device with a graphical interface and installed MATLAB (or open MATLAB with a graphical interface on the server). Then, run the MATLAB script `plot_pop.m` for plotting results (Python plotting is in preparation for the next NEOPSY version)
 
 Note: See connected example files for `data.para`, `input.para`, and observed dispersion curves in `./data`
 
@@ -168,10 +187,10 @@ doesn't matter. You can use both the absolute or relative paths.
 The data files (e.g., `Data_R0.dat`) consist of three columns. The first is frequency. The frequency
 range and the sampling rate may be irregular, and they may differ among the modes used. But it
 is recommended to use continuous regular sampling on a log-scale. At least, the frequency samples
-should be in increasing order. The second column is measured data (slowness [s/m]; ellipticity
+should be in increasing order. The second column are measured data (slowness [s/m]; ellipticity
 [0, Inf]; or ellipticity angle [deg]). The third column contains the expected uncertainty (error)
-as 1sigma (or multiplication factor in the case of ellipticity). MTI is Bayesian inversion, where the
-measured data are weighted by the inverse of their uncertainties, so the uncertainty matters! If
+as 1sigma (or multiplication factor in the case of ellipticity). NEOPSY is Bayesian inversion, where
+the measured data are weighted by the inverse of their uncertainties, so the uncertainty matters! If
 you wish to decrease the weight of any data, increase the uncertainty. If you wish to ignore some
 of your data samples in the inversion, give them an arbitrary negative uncertainty (e.g., -1). Note
 that the first line of the data files is always a comment, and there is only one data file allowed per
@@ -181,10 +200,10 @@ with a 1D layered model, but nature is more complex).
 
 ### SETTINGS OF INVERSION
 
-The settings of the inversion are managed by the `input.para` ASCII file (UNIX standard - LF).
+The settings of the NEOPSY are managed by the `input.para` ASCII file (UNIX standard - LF).
 This file has a line-fixed structure similarly as `data.para` file. However, the number of lines in
 this file may vary based on the number of zones or the number of fixed Voronoi nuclei. Add and
-remove lines very carefully. The minimum number of lines of input.para file is 54 (see figure below), 
+remove lines very carefully. The minimum number of lines of `input.para` file is 54 (see figure below), 
 while there are more lines in the multizonal case. An extension by one zone (i.e., increasing the 
 number on the fixed-line 8) results in additional lines for S-wave, P-wave, density, and Poisson’s ratio 
 limits, and Vs/Vp/rho MCMC steps (i.e., 5 additional lines for each additional zone). The number of 
@@ -193,21 +212,23 @@ The meaning of all parameters is emphasized in the comments of this input file.
 
 ### RUN INVERSION
 
-**Step 1** - MTI can be executed on multiple nodes (program `timpi`) or a single node (program `tiser`).
-Both programs must have two input command-line arguments: 1. path to `input.para` file; 2. path
+**Step 1** - NEOPSY can be executed on multiple nodes (program `timpi`) or a single node (program `tiser`).
+Both programs must have two input command-line arguments: (1) path to `input.para` file; (2) path
 to `data.para` file. The path may be either absolute or relative. The single-node version is meant
-for testing purposes or low-end PCs. Each deployed node makes use of one CPU and some amount
+for testing purposes or low-end PCs. Each deployed node makes use of one CPU and same amount
 of RAM (e.g., 16 nodes = 16 deployed CPUs and 16x the required RAM amount). To run the `timpi`,
 you have to use `mpirun` command. For your convenience, it is strongly recommended to use the
 pre-prepared bash script `run_timpi.sh` to run the inversion. This bash script gets the name 
 of the working folder; copy `input.para` and `data.para` files into the working folder; execute 
 the inversion with the proper arguments in the background; and save PID of the executed 
-inversion to `yymmdd_HHMMSS.pid` file. The result of the MTI is an ensemble of possible models drawn 
+inversion to `yymmdd_HHMMSS.pid` file. The result of the NEOPSY is an ensemble of possible models drawn 
 from the transdimensional posterior probability density function on model parameters. So, you can 
-wait for the termination of MCMC Markov chains or kill the process at any time (`kill -9 PID`). 
-MTI saves models continuously, so there is no harm if you kill it prematurely; there will be fewer 
+wait for the termination of MCMC Markov chains (it can last several hours) or kill the process at any time (`kill -9 PID`). 
+NEOPSY saves models continuously, so there is no harm if you kill it prematurely; there will be fewer 
 models in the ensemble (but be careful to wait until the end of the burn-in phase). These models 
-are saved in `./inv` directory in binary files (`xmodels*.dat`).
+are saved in `./inv` directory in binary files (`xmodels*.dat`). You can check the state of the inversion
+at any time by browsing log files in `./inv/log`. Especially, note number of preformed steps and the best
+data variance reduction in files `stats_*.log`.
 
 **Step 2** - When the inversion is done (finished or killed), you must run the after-process (program
 `tires`) to create ASCII files with results. The main purpose of this after-processing is to create
@@ -215,17 +236,18 @@ histograms, probability density functions, compute quarter-wavelength representa
 transfer function, etc. As with `timpi`, you can run it manually or by using the bash file
 `run_tires.sh`. It requires only one node (one CPU). So, it is not as demanding as `timpi`. Be sure
 you run it with `input.para` and `data.para` files which are identical to those in Step 1. Results (ASCII
-files) are saved in `./inv` directory as (`out*` and `in*` files).
+files) are saved in `./inv` directory as `out*` and `in*` files.
 
-**Step 3** - To plot the results, all you need are the files shown in the previous figure and MATLAB with
-a graphical interface (Python plotting is in preparation for the next version). The size of these resultant ASCII files is quite small, so you can copy all of them to your local computer with MATLAB software installed. The plotting procedure is easy. You just run the
-`plot_pop.m` script with the presence of `./lib` and `./inv` folders, and figures will pop up automatically.
-If you use a different working folder or want to control the behavior of the output figures,
-you can change some parameters at the beginning of the `plot_pop.m` script.
+**Step 3** - To plot the results, all you need are the files from the previous step and MATLAB with
+a graphical interface (Python plotting is in preparation for the next NEOPSY version). The size of these
+resultant ASCII files is quite small, so you can copy all of them to your local computer with MATLAB software
+installed. The plotting procedure is easy. You just run the `plot_pop.m` script with the presence of `./lib`
+and `./inv` folders, and figures will pop up automatically. If you use a different working folder or want to
+control the behavior of the output figures, you can change some parameters at the beginning of the `plot_pop.m` script.
 
 ### ERROR LIST
 
-The MTI software can produce various error/warning messages to inform the user about the source
+The NEOPSY software can produce various error/warning messages to inform the user about the source
 of some problems/irregularities. The purpose of the internal error handling is to allow users to
 find issues in the input and/or to trace the source of potential problems. Most of the errors are
 input-related and can be easily solved by the user. Moreover, the program may produce some
