@@ -11,7 +11,7 @@ Multizonal Transdimensional Inversion (MTI) to infer near-surface 1D layered vel
 
 ---
 
-A unique software package for Multizonal Transdimensional Inversion (MTI) of near-surface 1D layered velocity models within a full Bayesian framework (Hallo et al., 2021). The framework is designed as transdimensional and data-driven, meaning the model complexity is inferred directly from the data. This is implemented by a mathematical **Occam's razor** inherent to the Bayesian formulation. The transdimensional model space is sampled using **Markov Chain Monte Carlo** (MCMC) with **Parallel Tempering**, enabling efficient exploration of high-dimensional and non-linear parameter spaces. The code is parallelized in **Fortran** using **MPI** (CPU), specifically optimized for deployment on **High-Performance Computing** (HPC) clusters and large-scale seismic inversions.
+A unique software package NEOPSY for Multizonal Transdimensional Inversion (MTI) of near-surface 1D layered velocity models within a full Bayesian framework (Hallo et al., 2021). The framework is designed as transdimensional and data-driven, meaning the model complexity is inferred directly from the data. This is implemented by a mathematical **Occam's razor** inherent to the Bayesian formulation. The transdimensional model space is sampled using **Markov Chain Monte Carlo** (MCMC) with **Parallel Tempering**, enabling efficient exploration of high-dimensional and non-linear parameter spaces. The code is parallelized in **Fortran** using **MPI** (CPU), specifically optimized for deployment on **High-Performance Computing** (HPC) clusters and large-scale seismic inversions.
 
 ## 1 METHODOLOGY
 
@@ -80,7 +80,7 @@ Data-driven Inversion, Occam's razor
 1. `data` - Directory containing observed data (dispersion and ellipticity SPAC curves) and reference rock velocity models `vs_ref_Swiss.ascii` and `vs_ref_Japan.ascii`
 2. `inv` - Work directory for the ongoing inversion
 3. `lib` - Directory with MATLAB function library
-4. `src` - Directory with source codes of the NEOPSY (includes `Makefile`)
+4. `src` - Directory with Fortran source codes of the NEOPSY (includes `Makefile`)
 5. `data.para` - Settings of input data
 6. `input.para` - Settings of the inversion
 7. `run_timpi.sh` - Run the MTI inversion (step 1)
@@ -104,7 +104,7 @@ chmod +x npdc tiser timpi tires
 
 1. Create a work directory for the inversion `./inv` in case it does not exist. The name of the working folder is optional, but it has to be the same as defined in the `input.para` file
 2. Create a log directory for log files `./inv/log` in case it does not exist
-3. Prepare data files with observed dispersion and ellipticity curves `./data`
+3. Prepare data files with observed dispersion and ellipticity curves in `./data`
 4. Set input parameters of data and inversion (`data.para` and `input.para`)
 5. **Step 1** - Run the MTI (executable `timpi` or `tiser`). You can do it manually, but it is strongly recommended to use the prepared bash file `run_timpi.sh`
 ```bash
@@ -115,7 +115,7 @@ bash ./run_timpi.sh
 ```bash
 bash ./run_tires.sh
 ```
-8. **Step 3** - Copy results (all `./inv/out*` and `./inv/in*` files) on your PC with a graphical interface and installed Matlab (or open Matlab with a graphical interface on the server). Then, run the Matlab script `plot_pop.m` for plotting results
+8. **Step 3** - Copy results (all `./inv/out*` and `./inv/in*` files) on your PC with a graphical interface and installed MATLAB (or open MATLAB with a graphical interface on the server). Then, run the MATLAB script `plot_pop.m` for plotting results (Python plotting is in preparation for the next version)
 
 Note: See connected example files for `data.para`, `input.para`, and observed dispersion curves in `./data`
 
@@ -144,6 +144,8 @@ If you use this tools suite, please cite both the original methodology paper (pr
 
 ### For the methodology and implementation:
 > Hallo, M., Imperatori, W., Panzera, F., Fäh, D. (2021). Joint multizonal transdimensional Bayesian inversion of surface wave dispersion and ellipticity curves for local near-surface imaging. Geophysical Journal International, 226 (1), 627-659. [https://doi.org/10.1093/gji/ggab116](https://doi.org/10.1093/gji/ggab116)
+
+---
 
 ## 10 USER MANUAL
 
@@ -215,9 +217,8 @@ transfer function, etc. As with `timpi`, you can run it manually or by using the
 you run it with `input.para` and `data.para` files which are identical to those in Step 1. Results (ASCII
 files) are saved in `./inv` directory as (`out*` and `in*` files).
 
-**Step 3** - To plot the results, all you need are the files shown in the previous figure and Matlab with
-a graphical interface. The size of these resultant ASCII files is quite small, so you can copy all of
-them to your local computer with Matlab software installed. The plotting procedure is easy. You just run the
+**Step 3** - To plot the results, all you need are the files shown in the previous figure and MATLAB with
+a graphical interface (Python plotting is in preparation for the next version). The size of these resultant ASCII files is quite small, so you can copy all of them to your local computer with MATLAB software installed. The plotting procedure is easy. You just run the
 `plot_pop.m` script with the presence of `./lib` and `./inv` folders, and figures will pop up automatically.
 If you use a different working folder or want to control the behavior of the output figures,
 you can change some parameters at the beginning of the `plot_pop.m` script.
@@ -230,10 +231,9 @@ find issues in the input and/or to trace the source of potential problems. Most 
 input-related and can be easily solved by the user. Moreover, the program may produce some
 warnings of information characters (excluded from this list as they are informational only).
 
-SIGNAL |signal code| – |A cause and a suggested solution|
 * ERROR 101 – This occurs if the user calls an executable binary file (timpi, tiser, tires) without
-            two command-line arguments. The first argument |(path/)filename| is the (path
-            and) filename of the input.para file. The second argument |(path/)filename| is
+            two command-line arguments. The first argument `(path/)filename` is the (path
+            and) filename of the input.para file. The second argument `(path/)filename` is
             the (path and) filename of the data.para file. Solution: Include both in your command-
             line expression, calling these binary files.
 * ERROR 102 – This occurs if the input.para file given in the first command-line argument does
