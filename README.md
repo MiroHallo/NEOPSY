@@ -31,7 +31,7 @@ Data-driven Inversion, Occam's razor
 
 ## 3 RELEASE HISTORY (MAJOR VERSIONS)
 
-*   **4.0 (Fjord) — Public Release** | March 2026
+*   **4.0 (Fjord) — Public Release** | May 2026
     *   Public open-source release
     *   Integration with Geopsy 3.X
     *   New Outputs: Output ASCII files with layer interfaces, MAP model uncertainty, amplification, and V<sub>S30</sub>
