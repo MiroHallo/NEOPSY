@@ -167,6 +167,9 @@ If you use NEOPSY, please cite both the original methodology paper (preferred) a
 ### For the methodology and implementation:
 > Hallo, M., Imperatori, W., Panzera, F., Fäh, D. (2021). Joint multizonal transdimensional Bayesian inversion of surface wave dispersion and ellipticity curves for local near-surface imaging. Geophysical Journal International, 226 (1), 627-659. [https://doi.org/10.1093/gji/ggab116](https://doi.org/10.1093/gji/ggab116)
 
+### For the specific software version:
+> Hallo, M. (2026). NEOPSY: HPC-parallelized Bayesian Inversion for Near-surface Imaging (v4.0) [Software]. Zenodo.
+
 ---
 
 ## 10 USER MANUAL
