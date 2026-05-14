@@ -148,7 +148,7 @@ bash ./run_clean.sh
 
 ## 8 COPYRIGHT
 
-Copyright (C) 2019-2021 ETH Zurich (Architect: Miroslav Hallo)
+Copyright (C) 2019-2021,2026 ETH Zurich (Architect: Miroslav Hallo)
 
 This program is published under the GNU General Public License (GNU GPL).
 
