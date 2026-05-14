@@ -73,7 +73,7 @@ Data-driven Inversion, Occam's razor
     * Neopsy makes use of the `gpdc` and `gpell` functions (in command line)
     * [https://www.geopsy.org/](https://www.geopsy.org/)
 
-5. MATLAB R2025b or newer for plotting results
+5. MATLAB R2025b or newer for plotting results (Python plotting is in preparation)
 
 ## 5 PACKAGE CONTENT
 
@@ -133,7 +133,13 @@ bash ./run_tires.sh
 ```
 7. **Step 3** - Copy results (all `./inv/out*` and `./inv/in*` files) on device with a graphical interface and installed MATLAB (or open MATLAB with a graphical interface on the server). Then, run the MATLAB script `plot_pop.m` for plotting results (Python plotting is in preparation for the next NEOPSY version)
 
-Note: See connected example files for `data.para`, `input.para`, and observed dispersion curves in `./data`
+**Note:** See connected example files for `data.para`, `input.para`, and observed dispersion curves in `./data`. Also, see an example of the resulting posterior marginal probability density function of S-wave velocity, depth of layer interfaces, and V<sub>S30</sub> below.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="img/neopsy_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="img/neopsy_light.png">
+  <img alt="NEOPSY results example" src="img/neopsy_light.png">
+</picture>
 
 ## 8 COPYRIGHT
 
