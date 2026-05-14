@@ -86,6 +86,7 @@ Data-driven Inversion, Occam's razor
 7. `run_timpi.sh` - Run the MTI inversion (step 1)
 8. `run_tires.sh` - Run post-processing of the MTI inversion (step 2)
 9. `plot_pop.m` - Plot resultant figures by MATLAB (step 3)
+10. `run_clean.sh` - Clean working directory after inversion (optional)
 
 ## 6 COMPILATION
 
@@ -105,7 +106,7 @@ chmod +x npdc tiser timpi tires
 1. Create a work directory `./inv` and log directory `./inv/log`. The name of the working folder is optional, but it has to be the same as defined in the `input.para` file (`run_timpi.sh` creates these directories automatically)
 2. Prepare data files with observed dispersion and ellipticity curves in directory `./data`
 3. Set input parameters of data and inversion (`data.para` and `input.para`) in NEOPSY root directory
-4. **Step 1** - Run NEOPSY (executable `timpi` or `tiser`). You can do it manually, but it is strongly recommended to use the prepared bash file `run_timpi.sh`
+4. **Step 1** - Run NEOPSY (executable `timpi` or `tiser`). You can do it manually, but it is strongly recommended to use the prepared bash script `run_timpi.sh`
 ```bash
 bash ./run_timpi.sh
 ```
@@ -127,11 +128,15 @@ max_val:     100    2000    2000      100%
      500      81    1037       1     65.67
 	 ...
 ```
-6. **Step 2** - Run the after-process (`tires`) to create PDFs, population histograms, QWL representation, SH-wave amplification, etc. You can run it manually, or by using the bash file `run_tires.sh` (recommended). The results are saved in `./inv` directory as (`out*` and `in*` files)
+6. **Step 2** - Run the after-process (`tires`) to create PDFs, population histograms, QWL representation, SH-wave amplification, etc. You can run it manually, or by using the bash script `run_tires.sh` (recommended). The results are saved in `./inv` directory as (`out*` and `in*` files)
 ```bash
 bash ./run_tires.sh
 ```
 7. **Step 3** - Copy results (all `./inv/out*` and `./inv/in*` files) on device with a graphical interface and installed MATLAB (or open MATLAB with a graphical interface on the server). Then, run the MATLAB script `plot_pop.m` for plotting results (Python plotting is in preparation for the next NEOPSY version)
+8. **(Optional)** You can clean the working directory after the inversion using the Bash script `run_clean.sh`. It deletes temporary files, and if you set the switch `deleteEnsemble=1`, it will also delete the ensemble of solutions (`xmodels*.dat`), which takes up the most disk space and is not necessary after post-processing.
+```bash
+bash ./run_clean.sh
+```
 
 **Note:** See connected example files for `data.para`, `input.para`, and observed dispersion curves in `./data`. Also, see an example of the resulting posterior marginal probability density function of S-wave velocity, depth of layer interfaces, and V<sub>S30</sub> below.
 
