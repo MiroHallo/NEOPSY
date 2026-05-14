@@ -1,0 +1,32 @@
+# Multizonal Transdimensional Inversion
+# SETTINGS - Observed Data (keep lines order including comments)
+#----------------------------------------------------------------------
+# Use Rayleigh wave modes: R0(fundamental), R1, R2, R3 (1=YES, 0=NO)
+1 0 0 0
+#----------------------------------------------------------------------
+# Use Love wave modes: L0(fundamental), L1, L2, L3 (1=YES, 0=NO)
+0 0 0 0
+#----------------------------------------------------------------------
+# Use R0 ellipticity: abs(ell.) [-], angle(ell.) [deg] (1=YES, 0=NO)
+1 0
+#----------------------------------------------------------------------
+# List of files with observed data (do not remove lines)
+# R0 R1 R2 R3
+./data/Data_R0.dat
+./data/Data_R1.dat
+./data/Data_R2.dat
+./data/Data_R3.dat
+# L0 L1 L2 L3
+./data/Data_L0.dat
+./data/Data_L1.dat
+./data/Data_L2.dat
+./data/Data_L3.dat
+# ELL ELA
+./data/Data_ELL.dat
+./data/Data_ELA.dat
+#----------------------------------------------------------------------
+# Input initial model (only with Expert switch, single-zonal trans-D)
+./data/init.model
+#----------------------------------------------------------------------
+# Reference rock velocity model (layer thickness [m], Vs [m/s])
+./data/vs_ref_Swiss.ascii

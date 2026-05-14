@@ -1,0 +1,57 @@
+# Multizonal Transdimensional Inversion
+# SETTINGS - Inversion (keep lines order including comments)
+#------------------------------------------------------------------------------
+# DEPTH: min_depth [m] (>0.0 due to Log-domain), max_depth of the profile [m]
+0.5  300.0
+#------------------------------------------------------------------------------
+# ZONES: number of dept-zones (=1 for single-zonal inversion)
+1
+#------------------------------------------------------------------------------
+# ZONES: thicknesses of dept-zones [m] (in row, the last is half-space -> 0.0)
+0.0
+#------------------------------------------------------------------------------
+# S-WAVE VELOCITY: minimum and maximum thresholds [m/s] (one line per zone)
+50.0  3000.0
+#------------------------------------------------------------------------------
+# P-WAVE VELOCITY: minimum and maximum thresholds [m/s] (one line per zone)
+70.0  6000.0
+#------------------------------------------------------------------------------
+# DENSITY: minimum and maximum [kg/m^3] (1 line per zone, min=max -> fixed Rho)
+2000.0  3000.0
+#------------------------------------------------------------------------------
+# POISSON's RATIO: minimum and maximum (one line per zone, min=max -> fixed nu)
+0.2  0.4
+#------------------------------------------------------------------------------
+# MCMC Gaussian steps: Vs, Vp, Rho (one line per zone, 1sigma in resp. units)
+5.0  10.0  20.0
+#------------------------------------------------------------------------------
+# MCMC Gaussian steps: Log-depth domain (single value, 1sigma in ln([m]) units)
+0.02
+#------------------------------------------------------------------------------
+# INVERSE VELOCITY GRADIENT: max. depth [m] (0.0 -> no low-velocity zones)
+0.0
+#------------------------------------------------------------------------------
+# MCMC settings: Chains, Burn-in steps, Total steps (recomm. [20 5000 40000])
+20 5000 40000
+#------------------------------------------------------------------------------
+# WORKING DIRECTORY (max. 80 chars, no whitespace, no special characters)
+./inv/
+#------------------------------------------------------------------------------
+# DIMENSIONS: Total maximal number of the Voronoi nuclei (recomm. 30)
+30
+#------------------------------------------------------------------------------
+# DIMENSIONS: Transdimensional proposal probability (<0.45, P_birth=P_death)
+0.05
+#------------------------------------------------------------------------------
+# EXPERT SWITCH: explore_prior, negative_timeout, group_velocity, initial_model
+0  0  0  0
+#------------------------------------------------------------------------------
+# Optional_A: Number of fixed number of layers (non-transdimensional inversion)
+0
+#------------------------------------------------------------------------------
+# Optional_B: Number of fixed Voronoi nuclei (non-transdimensional inversion)
+0
+# Optional_B: Fixed Voronoi nuclei: Depth [m], Vs [m/s], Vp [m/s], Rho [kg/m^3]
+4 -1 -1 -1
+6 -1 -1 -1
+56 -1 -1 -1

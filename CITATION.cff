@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: "Hallo"
+    given-names: "Miroslav"
+    orcid: "https://orcid.org/0000-0001-5865-7767"
+title: "NEOPSY: HPC-parallelized Bayesian Inversion for Near-surface Imaging"
+abstract: "A unique software package for Multizonal Transdimensional Inversion (MTI) of near-surface 1D layered velocity models within a full Bayesian framework. The framework is designed as transdimensional and data-driven, meaning the model complexity is inferred directly from the data. This is implemented by a mathematical Occam's razor inherent to the Bayesian formulation. The transdimensional model space is sampled using Markov Chain Monte Carlo (MCMC) with Parallel Tempering, enabling efficient exploration of high-dimensional and non-linear parameter spaces. The code is parallelized in Fortran using MPI (CPU), specifically optimized for deployment on High-Performance Computing (HPC) clusters and large-scale seismic inversions. This code was used for the inversion of near-surface structure on Mars, published in Nature Communications."
+version: "4.0"
+#doi: "10.5281/zenodo.xxxxxxx"
+date-released: "2026-05-14"
+license: GPL-3.0-or-later
+repository-code: "https://github.com/MiroHallo/NEOPSY"
+keywords:
+  - "Bayesian inference"
+  - "uncertainty quantification"
+  - "transdimensional Bayesian inference"
+  - "Occam razor"
+  - "seismology"
+  - "site effects"
+  - "site characterization"
+  - "seismic hazard"
+  - "high performance computing"
+  - "MPI"
+  - "MCMC"
+  - "parallel computing"
+
+# -------------------------------------------------------------------
+# Preferred citation for GitHub
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Hallo"
+      given-names: "Miroslav"
+      orcid: "https://orcid.org/0000-0001-5865-7767"
+    - family-names: "Imperatori"
+      given-names: "Walter"
+    - family-names: "Panzera"
+      given-names: "Francesco"
+      orcid: "https://orcid.org/0000-0003-3062-4044"
+    - family-names: "Fäh"
+      given-names: "Donat"
+      orcid: "https://orcid.org/0000-0002-9195-4373"
+  title: "Joint multizonal transdimensional Bayesian inversion of surface wave dispersion and ellipticity curves for local near-surface imaging"
+  journal: "Geophysical Journal International"
+  year: 2021
+  volume: "226"
+  issue: "1"
+  doi: "10.1093/gji/ggab116"
