@@ -37,7 +37,7 @@ Data-driven Inversion, Occam's razor
     *   Advanced Visualization: Improved all plotting scripts, high-resolution resultant figures
     *   Localization: Added option for user-specific reference rock velocity model (for amplification); Japanese and Swiss reference models present in default
 
-*   **3.0 (Eagle) — Geopsy Update** | April 2021
+*   **3.0 (Eagle) — Geopsy Update** | May 2021
     *   Internal-only version
     *   Integration with Geopsy 3.X
     *   Geopsy Update: Forward problem routines changed to Geopsy 3.X
