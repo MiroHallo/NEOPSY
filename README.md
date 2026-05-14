@@ -4,6 +4,7 @@ Multizonal Transdimensional Inversion (MTI) to infer near-surface 1D layered vel
 
 <a href="#cite"><img src="https://img.shields.io/badge/CITE%20AS-grey?style=flat" alt="Cite As"></a>
 [![PAPER](https://img.shields.io/badge/PAPER-10.1093%2Fgji%2Fggab116-%23007EC6?style=flat)](https://doi.org/10.1093/gji/ggab116)
+[![SOFTWARE](https://img.shields.io/badge/SOFTWARE-10.5281%2Fzenodo.20174687-%23007EC6?style=flat)](https://doi.org/10.5281/zenodo.20174687)
 
 ![Fortran](https://img.shields.io/badge/Fortran-%23734f96?style=flat&logo=fortran&logoColor=white)
 ![HPC](https://img.shields.io/badge/HPC-MPI%20(CPU)-%23002F5A?style=flat)
@@ -173,7 +174,7 @@ If you use NEOPSY, please cite both the original methodology paper (preferred) a
 > Hallo, M., Imperatori, W., Panzera, F., Fäh, D. (2021). Joint multizonal transdimensional Bayesian inversion of surface wave dispersion and ellipticity curves for local near-surface imaging. Geophysical Journal International, 226 (1), 627-659. [https://doi.org/10.1093/gji/ggab116](https://doi.org/10.1093/gji/ggab116)
 
 ### For the specific software version:
-> Hallo, M. (2026). NEOPSY: HPC-parallelized Bayesian Inversion for Near-surface Imaging (v4.0) [Software]. Zenodo.
+> Hallo, M. (2026). NEOPSY: HPC-parallelized Bayesian Inversion for Near-surface Imaging (v4.0) [Software]. Zenodo. [https://doi.org/10.5281/zenodo.20174687](https://doi.org/10.5281/zenodo.20174687)
 
 ---
 
