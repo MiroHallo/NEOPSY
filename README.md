@@ -13,7 +13,7 @@ Multizonal Transdimensional Inversion (MTI) to infer near-surface 1D layered vel
 ---
 
 A unique software package NEOPSY for Multizonal Transdimensional Inversion (MTI) of near-surface 1D layered velocity models within a full Bayesian framework (Hallo et al., 2021). The framework is designed as transdimensional and data-driven, meaning the model complexity (number of layers) is inferred directly from the data. This is implemented by a mathematical **Occam's razor** inherent to the Bayesian formulation. The transdimensional model space is sampled using **Markov Chain Monte Carlo** (MCMC) with **Parallel Tempering**, enabling efficient exploration of high-dimensional and non-linear parameter spaces. The code is parallelized in **Fortran** using **MPI** (CPU), specifically optimized for deployment on **High-Performance Computing** (HPC) clusters and large-scale seismic inversions. 
-> [!NOTE]
+> [!IMPORTANT]
 > This code was used for the inversion of near-surface structure on **Mars**, published in **Nature Communications** (Hobiger, Hallo, Schmelzbach et al., 2021).
 
 ## 1 METHODOLOGY
