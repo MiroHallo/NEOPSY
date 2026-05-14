@@ -30,6 +30,20 @@ International, 226 (1), 627-659. [https://doi.org/10.1093/gji/ggab116](https://d
 Bayesian Inference, Markov Chain Monte Carlo (MCMC), Uncertainty Quantification,
 High-Performance Computing (HPC), Code Parallelization by MPI (CPU), Transdimensional Bayesian Inference, 
 Data-driven Inversion, Occam's razor
+*   **Input Data:**
+    *   Surface wave dispersion and ellipticity curves (both Rayleigh and Love waves)
+    *   Observed data from SPAC, MASW, RayDec, and other methods
+    *   Supports Rayleigh fundamental and higher modes (1st, 2nd, and 3rd), Love fundamental and higher modes (1st, 2nd, and 3rd), as well as Rayleigh wave ellipticity (H/V) and ellipticity angle
+*   **Key Features:**
+    *   **Multimodal Joint Inversion:** Simultaneously inverts various wave types and modes
+    *   **Bayesian Framework:** Infers the posterior probability density function to provide solutions with a rigorous uncertainty estimate
+    *   **Transdimensional Inversion:** Automatically adjusts the number of dimensions (number of layers) based on the Occam's razor principle
+    *   **Multizonal Prior:** Allows users to define depth-dependent zones for layer parameters (V<sub>S</sub>, V<sub>P</sub>, mass density, and Poisson's ratio)
+    *   **Robust LVZ Support:** Capable of inversion for complex velocity profiles containing low-velocity zones (inverse velocity gradients)
+*   **Outputs:**
+    *   High-quality figures and standard ASCII text files
+    *   Posterior probability density functions for: V<sub>S</sub>, V<sub>P</sub>, mass density, Poisson's ratio, V<sub>S30</sub>, depth of layer interfaces, quarter-wavelength parameters (velocity, depth, impedance), SH-wave transfer functions, and amplification relative to a reference rock model
+    *   Representative 1D models: Maximum Likelihood (ML), Maximum A Posteriori (MAP), Marginal Maximum A Posteriori (MAX), and posterior mean (AM) with its associated uncertainty
 
 ## 3 RELEASE HISTORY (MAJOR VERSIONS)
 
