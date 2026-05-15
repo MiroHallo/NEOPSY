@@ -93,10 +93,8 @@ Data-driven Inversion, Occam's razor
     * [https://www.geopsy.org/](https://www.geopsy.org/)
 
 5. MATLAB R2025b or Python 3.12 for plotting results
-
-  Python Libraries: matplotlib, numpy
-
-  Install Python dependencies via pip:
+    * Python Libraries: matplotlib, numpy
+    * Install Python dependencies via pip:
 ```bash
 pip install -r requirements.txt
 ```
