@@ -8,6 +8,8 @@ Multizonal Transdimensional Inversion (MTI) to infer near-surface 1D layered vel
 
 ![Fortran](https://img.shields.io/badge/Fortran-%23734f96?style=flat&logo=fortran&logoColor=white)
 ![HPC](https://img.shields.io/badge/HPC-MPI%20(CPU)-%23002F5A?style=flat)
+![Python](https://img.shields.io/badge/Python-%233776AB?style=flat&logo=python&logoColor=white)
+[![PEP8](https://img.shields.io/badge/code%20style-pep8-brightgreen?style=flat&labelColor=%233776AB)](https://www.python.org/dev/peps/pep-0008/)
 ![MATLAB](https://img.shields.io/badge/MATLAB-%23ED7D31?style=flat)
 
 ---
@@ -90,7 +92,14 @@ Data-driven Inversion, Occam's razor
     * Neopsy makes use of the `gpdc` and `gpell` functions (in command line)
     * [https://www.geopsy.org/](https://www.geopsy.org/)
 
-5. MATLAB R2025b or newer for plotting results (Python plotting is in preparation)
+5. MATLAB R2025b or Python 3.12 for plotting results
+
+  Python Libraries: matplotlib, numpy
+
+  Install Python dependencies via pip:
+```bash
+pip install -r requirements.txt
+```
 
 ## 5 PACKAGE CONTENT
 
@@ -104,6 +113,7 @@ Data-driven Inversion, Occam's razor
 8. `run_tires.sh` - Run post-processing of the MTI inversion (step 2)
 9. `plot_pop.m` - Plot resultant figures by MATLAB (step 3)
 10. `run_clean.sh` - Clean working directory after inversion (optional)
+11. `requirements.txt` - pip requirements file for instalation of Python dependencies
 
 ## 6 COMPILATION
 
