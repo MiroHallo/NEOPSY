@@ -167,13 +167,14 @@ def plot_dispersion(ftxt: str, filepath: str) -> None:
 
     # Start figure
     plt.rcParams.update({
-        'font.size': 14,
-        'xtick.labelsize': 14,
-        'ytick.labelsize': 14,
-        'axes.labelsize': 16,
-        'axes.titlesize': 16,
+        'font.size': 8,
+        'xtick.labelsize': 8,
+        'ytick.labelsize': 8,
+        'axes.labelsize': 9,
+        'axes.titlesize': 9,
+        'legend.fontsize': 7,
     })
-    fig, axs = plt.subplots(2, 1, figsize=(12, 10), facecolor='w')
+    fig, axs = plt.subplots(2, 1, figsize=(16/2.54, 12/2.54), facecolor='w')
 
     # Subplot 1: Slowness
     axs[0].semilogx(inData[okf, 0], inData[okf, 1] * 1000,
@@ -207,7 +208,7 @@ def plot_dispersion(ftxt: str, filepath: str) -> None:
     axs[1].set_ylabel('Velocity (m/s)')
 
     plt.tight_layout()
-    plt.savefig(f"{PREF}Data_{ftxt}.png", dpi=300, bbox_inches='tight')
+    plt.savefig(f"{PREF}Data_{ftxt}.png", dpi=600, bbox_inches='tight')
     plt.close(fig)
     print(f"[+] SUCCESS: Saved to {PREF}Data_{ftxt}.png")
 
@@ -250,13 +251,14 @@ def plot_ellipticity(ftxt: str, filepath: str) -> None:
 
     # Start figure
     plt.rcParams.update({
-        'font.size': 14,
-        'xtick.labelsize': 14,
-        'ytick.labelsize': 14,
-        'axes.labelsize': 16,
-        'axes.titlesize': 16,
+        'font.size': 8,
+        'xtick.labelsize': 8,
+        'ytick.labelsize': 8,
+        'axes.labelsize': 9,
+        'axes.titlesize': 9,
+        'legend.fontsize': 7,
     })
-    fig, ax = plt.subplots(figsize=(12, 10), facecolor='w')
+    fig, ax = plt.subplots(figsize=(16/2.54, 12/2.54), facecolor='w')
 
     # log-log plot
     ax.loglog(inData_log[okf, 0], inData_log[okf, 1], 'k:', label='Data line')
@@ -276,7 +278,7 @@ def plot_ellipticity(ftxt: str, filepath: str) -> None:
     ax.legend(loc='best')
 
     plt.tight_layout()
-    plt.savefig(f"{PREF}Data_ELL.png", dpi=300, bbox_inches='tight')
+    plt.savefig(f"{PREF}Data_ELL.png", dpi=600, bbox_inches='tight')
     plt.close(fig)
     print(f"[+] SUCCESS: Saved to {PREF}Data_ELL.png")
 
@@ -324,13 +326,14 @@ def plot_ellipticity_angle(ftxt: str, filepath: str) -> None:
 
     # Start figure
     plt.rcParams.update({
-        'font.size': 14,
-        'xtick.labelsize': 14,
-        'ytick.labelsize': 14,
-        'axes.labelsize': 16,
-        'axes.titlesize': 16,
+        'font.size': 8,
+        'xtick.labelsize': 8,
+        'ytick.labelsize': 8,
+        'axes.labelsize': 9,
+        'axes.titlesize': 9,
+        'legend.fontsize': 7,
     })
-    fig, axs = plt.subplots(2, 1, figsize=(12, 10), facecolor='w')
+    fig, axs = plt.subplots(2, 1, figsize=(16/2.54, 12/2.54), facecolor='w')
 
     # Subplot 1: Angle  (semilogx)
     axs[0].semilogx(inData[okf, 0], inData[okf, 1], 'k:', label='Data line')
@@ -363,7 +366,7 @@ def plot_ellipticity_angle(ftxt: str, filepath: str) -> None:
     axs[1].set_ylabel('Ellipticity')
 
     plt.tight_layout()
-    plt.savefig(f"{PREF}Data_ELA.png", dpi=300, bbox_inches='tight')
+    plt.savefig(f"{PREF}Data_ELA.png", dpi=600, bbox_inches='tight')
     plt.close(fig)
     print(f"[+] SUCCESS: Saved to {PREF}Data_ELA.png")
 
