@@ -74,7 +74,7 @@ FILENAMES = {
 # =============================================================================
 
 # Automatic frequency axis limits
-def fscale(fmin, fmax):
+def fscale(fmin, fmax) -> tuple[float, float, np.array]:
     """
     Return frequency axis limits and intelligent ticks.
 
