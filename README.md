@@ -157,7 +157,7 @@ max_val:     100    2000    2000      100%
 ```bash
 bash ./run_tires.sh
 ```
-7. **Step 3** - Copy results (all `./inv/out*` and `./inv/in*` files) on device with a graphical interface and installed MATLAB (or open MATLAB with a graphical interface on the server). Then, run the MATLAB script `plot_pop.m` for plotting results (Python plotting is in preparation for the next NEOPSY version)
+7. **Step 3** - Run the MATLAB script `plot_pop.m` for plotting results. If you run the MATLAB script on a server without a graphical user interface, use `matlab -nodisplay -nosplash -nodesktop -r "run('plot_pop.m'); exit;"`. Python plotting is in preparation for the next NEOPSY version. If you run the Python script on a server without a graphical user interface, set `export MPLBACKEND=Agg` (Linux)  or `$env:MPLBACKEND="Agg"` (Windows) before execution.
 8. **(Optional)** You can clean the working directory after the inversion using the Bash script `run_clean.sh`. It deletes temporary files, and if you set the switch `deleteEnsemble=1`, it will also delete the ensemble of solutions (`xmodels*.dat`), which takes up the most disk space and is not necessary after post-processing.
 ```bash
 bash ./run_clean.sh
