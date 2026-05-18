@@ -213,7 +213,7 @@ def plot_dispersion(ftxt: str, filepath: str) -> None:
 
 
 # -----------------------------------------------------------------------------
-# Plot dispersion curves
+# Plot ellipticity curve
 def plot_ellipticity(ftxt: str, filepath: str) -> None:
     """
     Load and plot Rayleigh wave ellipticity (ELL)
@@ -282,7 +282,7 @@ def plot_ellipticity(ftxt: str, filepath: str) -> None:
 
 
 # -----------------------------------------------------------------------------
-# Plot dispersion curves
+# Plot ellipticity angle curve
 def plot_ellipticity_angle(ftxt: str, filepath: str) -> None:
     """
     Load and plot Rayleigh wave ellipticity angle (ELA)
