@@ -92,8 +92,8 @@ Data-driven Inversion, Occam's razor
     * Neopsy makes use of the `gpdc` and `gpell` functions (in command line)
     * [https://www.geopsy.org/](https://www.geopsy.org/)
 
-5. MATLAB R2025b or Python 3.12 for plotting results
-    * Python Libraries: matplotlib, numpy
+5. Python 3.12 or MATLAB R2025b for plotting results
+    * Python Libraries: matplotlib, numpy, scipy
     * Install Python dependencies via pip:
 ```bash
 pip install -r requirements.txt
@@ -110,8 +110,10 @@ pip install -r requirements.txt
 7. `run_timpi.sh` - Run the MTI inversion (step 1)
 8. `run_tires.sh` - Run post-processing of the MTI inversion (step 2)
 9. `plot_pop.m` - Plot resultant figures by MATLAB (step 3)
-10. `run_clean.sh` - Clean working directory after inversion (optional)
-11. `requirements.txt` - pip requirements file for instalation of Python dependencies
+10. `plot_pop.py` - Plot resultant figures by Python (step 3)
+11. `lib.py` - Python function library
+12. `run_clean.sh` - Clean working directory after inversion (optional)
+13. `requirements.txt` - pip requirements file for instalation of Python dependencies
 
 ## 6 COMPILATION
 
@@ -157,7 +159,7 @@ max_val:     100    2000    2000      100%
 ```bash
 bash ./run_tires.sh
 ```
-7. **Step 3** - Run the MATLAB script `plot_pop.m` for plotting results. If you run the MATLAB script on a server without a graphical user interface, use `matlab -nodisplay -nosplash -nodesktop -r "run('plot_pop.m'); exit;"`. Python plotting is in preparation for the next NEOPSY version. If you run the Python script on a server without a graphical user interface, set `export MPLBACKEND=Agg` (Linux)  or `$env:MPLBACKEND="Agg"` (Windows) before execution.
+7. **Step 3** - Run the Python script `python3 plot_pop.py` or MATLAB script `plot_pop.m` for plotting results. If you run the Python script on a server without a graphical user interface, set `export MPLBACKEND=Agg` (Linux)  or `$env:MPLBACKEND="Agg"` (Windows) before execution. If you run the MATLAB script on a server without a graphical user interface, use `matlab -nodisplay -nosplash -nodesktop -r "run('plot_pop.m'); exit;"`.
 8. **(Optional)** You can clean the working directory after the inversion using the Bash script `run_clean.sh`. It deletes temporary files, and if you set the switch `deleteEnsemble=1`, it will also delete the ensemble of solutions (`xmodels*.dat`), which takes up the most disk space and is not necessary after post-processing.
 ```bash
 bash ./run_clean.sh
@@ -198,7 +200,7 @@ If you use NEOPSY, please cite both the original methodology paper (preferred) a
 > Hallo, M., Imperatori, W., Panzera, F., Fäh, D. (2021). Joint multizonal transdimensional Bayesian inversion of surface wave dispersion and ellipticity curves for local near-surface imaging. Geophysical Journal International, 226 (1), 627-659. [https://doi.org/10.1093/gji/ggab116](https://doi.org/10.1093/gji/ggab116)
 
 ### For the specific software version:
-> Hallo, M. (2026). NEOPSY: HPC-parallelized Bayesian Inversion for Near-surface Imaging (v4.0) [Software]. Zenodo. [https://doi.org/10.5281/zenodo.20174687](https://doi.org/10.5281/zenodo.20174687)
+> Hallo, M. (2026). NEOPSY: HPC-parallelized Bayesian Inversion for Near-surface Imaging (v4.1) [Software]. Zenodo. [https://doi.org/10.5281/zenodo.20174687](https://doi.org/10.5281/zenodo.20174687)
 
 ---
 
@@ -274,12 +276,7 @@ transfer function, etc. As with `timpi`, you can run it manually or by using the
 you run it with `input.para` and `data.para` files which are identical to those in Step 1. Results (ASCII
 files) are saved in `./inv` directory as `out*` and `in*` files.
 
-**Step 3** - To plot the results, all you need are the files from the previous step and MATLAB with
-a graphical interface (Python plotting is in preparation for the next NEOPSY version). The size of these
-resultant ASCII files is quite small, so you can copy all of them to your local computer with MATLAB software
-installed. The plotting procedure is easy. You just run the `plot_pop.m` script with the presence of `./lib`
-and `./inv` folders, and figures will pop up automatically. If you use a different working folder or want to
-control the behavior of the output figures, you can change some parameters at the beginning of the `plot_pop.m` script.
+**Step 3** - To plot the results, run the `python3 plot_pop.py` (Python) or `plot_pop.m` (MATLAB) script. The plotting scripts can be executed on local machines with a graphical user interface (GUI) or directly via a command-line server. Output figures are saved automatically. If you use a different working directory or need to customize the figure output behavior, you can easily modify the configuration parameters located at the beginning of the plotting scripts.
 
 ### ERROR LIST
 
