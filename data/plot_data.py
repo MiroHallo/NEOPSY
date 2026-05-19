@@ -5,7 +5,7 @@
 # Author: Miroslav HALLO, Kyoto University
 # E-mail: hallo.miroslav.2a@kyoto-u.ac.jp
 # Revision 2026/05: First version
-# Tested with: Python 3.12.3, Matplotlib 3.10.9, NumPy 2.4.4
+# Tested with: Python 3.12.3, Matplotlib 3.10.9, NumPy 2.4.5
 # Method:
 # Hallo, M., Imperatori, W., Panzera, F., Fäh, D. (2021). Joint multizonal
 #      transdimensional Bayesian inversion of surface wave dispersion and
@@ -74,7 +74,7 @@ FILENAMES = {
 # =============================================================================
 
 # Automatic frequency axis limits
-def fscale(fmin, fmax) -> tuple[float, float, np.array]:
+def fscale(fmin: float, fmax: float) -> tuple[float, float, np.array]:
     """
     Return frequency axis limits and intelligent ticks.
 
@@ -104,7 +104,7 @@ def fscale(fmin, fmax) -> tuple[float, float, np.array]:
         amax = np.max(stable_limits)
 
     # Generate all ticks
-    decades = 10.0**np.arange(-2, 2)
+    decades = 10.0 ** np.arange(-2, 2)
     major_prio = np.array([1, 2, 5])
     minor_prio = np.array([3, 4, 6, 8])
     detail_prio = np.array([1.5, 2.5, 7, 9])
