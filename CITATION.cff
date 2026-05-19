@@ -7,9 +7,9 @@ authors:
     orcid: "https://orcid.org/0000-0001-5865-7767"
 title: "NEOPSY: HPC-parallelized Bayesian Inversion for Near-surface Imaging"
 abstract: "A unique software package for Multizonal Transdimensional Inversion (MTI) of near-surface 1D layered velocity models within a full Bayesian framework. The framework is designed as transdimensional and data-driven, meaning the model complexity (number of layers) is inferred directly from the data. This is implemented by a mathematical Occam's razor inherent to the Bayesian formulation. The transdimensional model space is sampled using Markov Chain Monte Carlo (MCMC) with Parallel Tempering, enabling efficient exploration of high-dimensional and non-linear parameter spaces. The code is parallelized in Fortran using MPI (CPU), specifically optimized for deployment on High-Performance Computing (HPC) clusters and large-scale seismic inversions. This code was used for the inversion of near-surface structure on Mars, published in Nature Communications."
-version: "4.0"
+version: "4.1"
 doi: "10.5281/zenodo.20174687"
-date-released: "2026-05-14"
+date-released: "2026-05-19"
 license: GPL-3.0-or-later
 repository-code: "https://github.com/MiroHallo/NEOPSY"
 keywords:
