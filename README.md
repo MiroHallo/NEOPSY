@@ -31,19 +31,20 @@ International, 226 (1), 627-659. [https://doi.org/10.1093/gji/ggab116](https://d
 
 Bayesian Inference, Markov Chain Monte Carlo (MCMC), Uncertainty Quantification,
 High-Performance Computing (HPC), Code Parallelization by MPI (CPU), Transdimensional Bayesian Inference, 
-Data-driven Inversion, Occam's razor
+Data-driven Inversion, Occam's razor, Server-ready software
 *   **Input Data:**
     *   Surface wave dispersion and ellipticity curves (both Rayleigh and Love waves)
     *   Observed data from SPAC, MASW, RayDec, and other methods
     *   Supports Rayleigh fundamental and higher modes (1st, 2nd, and 3rd), Love fundamental and higher modes (1st, 2nd, and 3rd), as well as Rayleigh wave ellipticity (H/V) and ellipticity angle
 *   **Key Features:**
     *   **Multimodal Joint Inversion:** Simultaneously inverts various wave types and modes
-    *   **Bayesian Framework:** Infers the posterior probability density function to provide solutions with a rigorous uncertainty estimate
-    *   **Transdimensional Inversion:** Automatically adjusts the number of dimensions (number of layers) based on the Occam's razor principle
+    *   **Bayesian Framework:** Infers the posterior probability density function to provide solutions with uncertainty
+    *   **Transdimensional Inversion:** Automatically adjusts the number of dimensions (number of layers) based on the data-driven Occam's razor principle
     *   **Multizonal Prior:** Allows users to define depth-dependent zones for layer parameters (V<sub>S</sub>, V<sub>P</sub>, mass density, and Poisson's ratio)
-    *   **Robust LVZ Support:** Capable of inversion for complex velocity profiles containing low-velocity zones (inverse velocity gradients)
+    *   **Robust LVZ Support:** Capable of inversion for complex velocity profiles containing low-velocity zones
 *   **Outputs:**
     *   High-quality figures and standard ASCII text files
+    *   For plotting, users can use either Python or MATLAB interchangeably
     *   Posterior probability density functions for: V<sub>S</sub>, V<sub>P</sub>, mass density, Poisson's ratio, V<sub>S30</sub>, depth of layer interfaces, quarter-wavelength parameters (velocity, depth, impedance), SH-wave transfer functions, and amplification relative to a reference rock model
     *   Representative 1D models: Maximum Likelihood (ML), Maximum A Posteriori (MAP), Marginal Maximum A Posteriori (MAX), and posterior mean (AM) with its associated uncertainty
 
@@ -101,16 +102,16 @@ pip install -r requirements.txt
 
 ## 5 PACKAGE CONTENT
 
-1. `data` - Directory containing observed data (dispersion and ellipticity SPAC curves) and reference rock velocity models `vs_ref_Swiss.ascii` and `vs_ref_Japan.ascii`
-2. `inv` - Work directory for the ongoing inversion
+1. `data` - Directory containing observed data (dispersion and ellipticity curves) and reference rock velocity models `vs_ref_Swiss.ascii` and `vs_ref_Japan.ascii`
+2. `inv` - Directory for the ongoing inversion (working directory)
 3. `lib` - Directory with MATLAB function library
-4. `src` - Directory with Fortran source codes of the NEOPSY (includes `Makefile`)
+4. `src` - Directory with Fortran source codes (includes `Makefile`)
 5. `data.para` - Settings of input data
 6. `input.para` - Settings of the inversion
-7. `run_timpi.sh` - Run the MTI inversion (step 1)
-8. `run_tires.sh` - Run post-processing of the MTI inversion (step 2)
-9. `plot_pop.m` - Plot resultant figures by MATLAB (step 3)
-10. `plot_pop.py` - Plot resultant figures by Python (step 3)
+7. `run_timpi.sh` - Run the MTI inversion (STEP 1)
+8. `run_tires.sh` - Run post-processing of the MTI inversion (STEP 2)
+9. `plot_pop.m` - Plot resultant figures by MATLAB (STEP 3)
+10. `plot_pop.py` - Plot resultant figures by Python (STEP 3)
 11. `lib.py` - Python function library
 12. `run_clean.sh` - Clean working directory after inversion (optional)
 13. `requirements.txt` - pip requirements file for instalation of Python dependencies
@@ -159,7 +160,11 @@ max_val:     100    2000    2000      100%
 ```bash
 bash ./run_tires.sh
 ```
-7. **Step 3** - Run the Python script `python3 plot_pop.py` or MATLAB script `plot_pop.m` for plotting results. If you run the Python script on a server without a graphical user interface, set `export MPLBACKEND=Agg` (Linux)  or `$env:MPLBACKEND="Agg"` (Windows) before execution. If you run the MATLAB script on a server without a graphical user interface, use `matlab -nodisplay -nosplash -nodesktop -r "run('plot_pop.m'); exit;"`.
+7. **Step 3** - For plotting results, run the Python script `plot_pop.py` by
+```bash
+python3 plot_pop.py
+```
+or alternatively run MATLAB script `plot_pop.m` (MATLAB and Python are interchangeable). If you run the Python script on a server without a graphical user interface, set `export MPLBACKEND=Agg` (Linux)  or `$env:MPLBACKEND="Agg"` (Windows) before execution. If you run the MATLAB script on a server without a graphical user interface, use `matlab -nodisplay -nosplash -nodesktop -r "run('plot_pop.m'); exit;"`.
 8. **(Optional)** You can clean the working directory after the inversion using the Bash script `run_clean.sh`. It deletes temporary files, and if you set the switch `deleteEnsemble=1`, it will also delete the ensemble of solutions (`xmodels*.dat`), which takes up the most disk space and is not necessary after post-processing.
 ```bash
 bash ./run_clean.sh
