@@ -165,6 +165,7 @@ bash ./run_tires.sh
 python3 plot_pop.py
 ```
 or alternatively run MATLAB script `plot_pop.m` (MATLAB and Python are interchangeable). If you run the Python script on a server without a graphical user interface, set `export MPLBACKEND=Agg` (Linux)  or `$env:MPLBACKEND="Agg"` (Windows) before execution. If you run the MATLAB script on a server without a graphical user interface, use `matlab -nodisplay -nosplash -nodesktop -r "run('plot_pop.m'); exit;"`.
+
 8. **(Optional)** You can clean the working directory after the inversion using the Bash script `run_clean.sh`. It deletes temporary files, and if you set the switch `deleteEnsemble=1`, it will also delete the ensemble of solutions (`xmodels*.dat`), which takes up the most disk space and is not necessary after post-processing.
 ```bash
 bash ./run_clean.sh
